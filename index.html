@@ -1,26 +1,246 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- PUT A TITLE IN HERE -->
-    <title>This is the demo</title>
-    <!-- PUT A DESCRIPTION IN HERE -->
-    <meta name="description" content="describe content of the page here...." />
-    <!-- LINK TO NORMALIZE (FOR CONSISTENCY) -->
-    <link rel="stylesheet" href="styles/normalize.css" />
-    <!-- LINK TO ANY FRAMEWORK STYLES HERE-->
-    
-    <!-- LINK TO YOUR STYLES -->
-    <link rel="stylesheet" href="styles/styles.css" />
-    <!-- LINK TO EXTERNAL JS LIBRARIES HERE -->
-    <!-- LINK TO YOUR JS HERE. NOTE THE DEFER ATTRIBUTE. -->
-    <script src="scripts/scripts.js" defer></script>
-  </head>
-  <body>
-    <!-- YOUR HTML GOES HERE -->
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>LifeTrack- Build Better Habits</title>
+<meta name="description" content="Track your daily habits across exercise, nutrition, study, work, and more. Build momentum with a modern, intuitive interface." />
+<link rel="stylesheet" href="styles/normalize.css" />
+<link rel="stylesheet" href="styles/styles.css" />
+<script src="scripts/scripts.js" defer></script>
+</head>
+<body>
+  
+  <header class="main-header">
+    <div class="header-container">
+      <div class="logo">
+        <span class="logo-icon">⚡</span>
+        <span class="logo-text">LifeTrack</span>
+      </div>
+      <nav class="top-nav">
+        <button class="nav-link nav-item" data-target="home">
+          <svg width="20" height="20" viewBox="0 0 24 24">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" stroke="currentColor" stroke-width="2" fill="none"/>
+          </svg>
+          <span>Home</span>
+        </button>
+        <button class="nav-link nav-item" data-target="stats">
+          <svg width="20" height="20" viewBox="0 0 24 24">
+            <path d="M18 20V10M12 20V4M6 20v-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <span>Stats</span>
+        </button>
+        <button class="nav-link nav-item" data-target="categories">
+          <svg width="20" height="20" viewBox="0 0 24 24">
+            <rect x="3" y="3" width="7" height="7" stroke="currentColor" stroke-width="2" fill="none" rx="1"/>
+            <rect x="14" y="3" width="7" height="7" stroke="currentColor" stroke-width="2" fill="none" rx="1"/>
+            <rect x="14" y="14" width="7" height="7" stroke="currentColor" stroke-width="2" fill="none" rx="1"/>
+            <rect x="3" y="14" width="7" height="7" stroke="currentColor" stroke-width="2" fill="none" rx="1"/>
+          </svg>
+          <span>Categories</span>
+        </button>
+      </nav>
+      <button id="themeBtn" class="theme-btn" aria-label="Toggle dark mode">
+        <span class="sun-icon">☀️</span>
+        <span class="moon-icon">🌙</span>
+      </button>
+    </div>
+  </header>
 
-    <!-- YOUR EXTERNAL PLUG-IN MAY ASK YOU TO PUT A SCRIPT TAG HERE. -->
-  </body>
+  <main class="container">
+    
+    <!-- Home Section -->
+    <section id="home" class="page-section active">
+      
+      <!-- Page Header -->
+      <div class="page-header">
+        <h1 class="page-title">Today's Progress</h1>
+        <p class="page-subtitle">Track your habits. Build your momentum.</p>
+      </div>
+
+      <!-- Progress Summary Card -->
+      <div class="progress-card">
+        <div class="progress-content">
+          <div class="progress-text">
+            <div id="progressNumber" class="progress-number">0%</div>
+            <div class="progress-label">Daily Progress</div>
+          </div>
+          <div class="progress-circle">
+            <svg width="120" height="120">
+              <circle cx="60" cy="60" r="50" class="progress-bg"></circle>
+              <circle id="progressFill" cx="60" cy="60" r="50" class="progress-fill"></circle>
+            </svg>
+            <div id="progressPercentage" class="progress-percentage">0%</div>
+          </div>
+        </div>
+        <p id="progressSummary" class="progress-summary">Add habits to start tracking</p>
+      </div>
+
+      <!-- Habits Grid -->
+      <div id="habitsContainer" class="habits-grid">
+      </div>
+
+    </section>
+
+    <!-- Stats Section -->
+    <section id="stats" class="page-section">
+      <div class="page-header">
+        <h1 class="page-title">Your Statistics</h1>
+        <p class="page-subtitle">See how far you've come</p>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon">📊</div>
+          <div id="totalHabits" class="stat-number">0</div>
+          <div class="stat-label">Total Habits</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">🔥</div>
+          <div id="longestStreak" class="stat-number">0</div>
+          <div class="stat-label">Longest Streak</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">✓</div>
+          <div id="completedToday" class="stat-number">0</div>
+          <div class="stat-label">Completed Today</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">🎯</div>
+          <div id="totalCompletions" class="stat-number">0</div>
+          <div class="stat-label">All-Time Completions</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section id="categories" class="page-section">
+      <div class="page-header">
+        <h1 class="page-title">Habit Categories</h1>
+        <p class="page-subtitle">Organize your life, one habit at a time</p>
+      </div>
+
+      <div class="categories-grid">
+        <div class="category-card" style="--category-color: #2563EB;">
+          <div class="category-icon">💪</div>
+          <h3 class="category-name">Exercise</h3>
+          <p class="category-desc">Fitness & movement</p>
+        </div>
+        <div class="category-card" style="--category-color: #10B981;">
+          <div class="category-icon">🍎</div>
+          <h3 class="category-name">Nutrition</h3>
+          <p class="category-desc">Healthy eating habits</p>
+        </div>
+        <div class="category-card" style="--category-color: #7C3AED;">
+          <div class="category-icon">📚</div>
+          <h3 class="category-name">Study</h3>
+          <p class="category-desc">Learning & growth</p>
+        </div>
+        <div class="category-card" style="--category-color: #F59E0B;">
+          <div class="category-icon">🧘</div>
+          <h3 class="category-name">Wellness</h3>
+          <p class="category-desc">Mental health & mindfulness</p>
+        </div>
+        <div class="category-card" style="--category-color: #6366F1;">
+          <div class="category-icon">🌙</div>
+          <h3 class="category-name">Sleep</h3>
+          <p class="category-desc">Rest & recovery</p>
+        </div>
+        <div class="category-card" style="--category-color: #06B6D4;">
+          <div class="category-icon">💧</div>
+          <h3 class="category-name">Hydration</h3>
+          <p class="category-desc">Stay hydrated</p>
+        </div>
+        <div class="category-card" style="--category-color: #EF4444;">
+          <div class="category-icon">💼</div>
+          <h3 class="category-name">Work</h3>
+          <p class="category-desc">Professional development</p>
+        </div>
+        <div class="category-card" style="--category-color: #F97316;">
+          <div class="category-icon">🍳</div>
+          <h3 class="category-name">Cooking</h3>
+          <p class="category-desc">Culinary skills</p>
+        </div>
+        <div class="category-card" style="--category-color: #8B5CF6;">
+          <div class="category-icon">📖</div>
+          <h3 class="category-name">Reading</h3>
+          <p class="category-desc">Books & articles</p>
+        </div>
+        <div class="category-card" style="--category-color: #EC4899;">
+          <div class="category-icon">🎨</div>
+          <h3 class="category-name">Creative</h3>
+          <p class="category-desc">Art & expression</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <button id="addHabitBtn" class="fab" aria-label="Add new habit">
+    <svg width="28" height="28" viewBox="0 0 28 28">
+      <path d="M14 6v16M6 14h16" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+    </svg>
+  </button>
+
+  <div id="habitModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title">Create New Habit</h2>
+        <button id="closeModal" class="modal-close" aria-label="Close modal">
+          <svg width="24" height="24" viewBox="0 0 24 24">
+            <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+      
+      <form id="habitForm" class="modal-body">
+        <div class="form-group">
+          <label for="habitName" class="form-label">
+            Habit Name <span class="required">*</span>
+          </label>
+          <input 
+            type="text" 
+            id="habitName" 
+            class="form-input" 
+            placeholder="e.g., Morning workout, Read 30 minutes" 
+            required
+            maxlength="50"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="habitCategory" class="form-label">Category</label>
+          <select id="habitCategory" class="form-input">
+            <option value="exercise">💪 Exercise</option>
+            <option value="nutrition">🍎 Nutrition</option>
+            <option value="study">📚 Study</option>
+            <option value="wellness">🧘 Wellness</option>
+            <option value="sleep">🌙 Sleep</option>
+            <option value="water">💧 Hydration</option>
+            <option value="work">💼 Work</option>
+            <option value="cooking">🍳 Cooking</option>
+            <option value="reading">📖 Reading</option>
+            <option value="creative">🎨 Creative</option>
+          </select>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" id="cancelBtn" class="btn-secondary">Cancel</button>
+          <button type="submit" class="btn-primary">Create Habit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <svg width="0" height="0" style="position: absolute;">
+    <defs>
+      <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" style="stop-color:#2563EB;stop-opacity:1" />
+        <stop offset="100%" style="stop-color:#10B981;stop-opacity:1" />
+      </linearGradient>
+    </defs>
+  </svg>
+
+</body>
 </html>
