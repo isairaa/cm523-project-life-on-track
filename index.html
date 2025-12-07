@@ -1,807 +1,811 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0"
-    >
-    <title>Life On Track - Build Better Habits</title>
-    <meta
-      name="description"
-      content="Track your daily habits across exercise, nutrition, study, work, and more. Build your own tracker with a modern, intuitive interface."
-    >
-    <link rel="stylesheet" href="styles/normalize.css">
-    <link rel="stylesheet" href="styles/styles.css">
-    <script src="scripts/scripts.js" defer></script>
-  </head>
-  <body>
-    <!-- COVER PAGE -->
-    <section id="cover" class="cover-section active">
-      <div class="cover-top-bar">
-        <nav class="cover-nav">
-          <button
-            type="button"
-            class="cover-nav-link"
-            id="coverHomeBtn"
-          >
-            Home
-          </button>
-          <button
-            type="button"
-            class="cover-nav-link"
-            id="coverAboutBtn"
-          >
-            About
-          </button>
-        </nav>
-      </div>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0"
+>
+<title>Life On Track - Build Better Habits</title>
+<meta
+name="description"
+content="Track your daily habits across exercise, nutrition, study, work, and
+more. Build your own tracker with a modern, intuitive interface."
+>
+<link rel="stylesheet" href="styles/normalize.css">
+<link rel="stylesheet" href="styles/styles.css">
+<script src="scripts/scripts.js" defer></script>
+</head>
+<body>
+<!-- COVER PAGE -->
+<section id="cover" class="cover-section active">
+<div class="cover-top-bar">
+<nav class="cover-nav">
+<button
+type="button"
+class="cover-nav-link"
+id="coverHomeBtn"
+>
+Home
+</button>
+<button
+type="button"
+class="cover-nav-link"
+id="coverAboutBtn"
+>
+About
+</button>
+</nav>
 
-      <!-- Main cover content on top of stairs background -->
-      <div class="cover-content">
-        <h1 class="cover-title">Life On Track</h1>
-        <p class="cover-subtitle">
-          Build habits, watch your progress, and keep your life on track.
-        </p>
-        <button id="enterAppBtn" class="cover-primary-btn">
-          Create Your First Habit
-        </button>
-      </div>
+</div>
+<!-- Main cover content on top of stairs background -->
+<div class="cover-content">
+<h1 class="cover-title">Life On Track</h1>
+<p class="cover-subtitle">
+Build habits, watch your progress, and keep your life on track.
+</p>
+<button id="enterAppBtn" class="cover-primary-btn">
+Create Your First Habit
+</button>
+</div>
+<!-- Bottom border bar -->
+<div class="cover-bottom-bar"></div>
+</section>
+<!-- MAIN APP SHELL (hidden until after cover) -->
+<div id="appShell" class="app-shell hidden">
+<header class="main-header">
+<div class="header-container">
+<!-- clickable logo returns to COVER -->
+<button class="logo" id="logoBtn" type="button">
+<span class="logo-icon"></span>
+<span class="logo-text">Life On Track</span>
+</button>
+<nav class="top-nav">
+<button
+class="nav-link nav-item nav-active"
+data-target="home"
+type="button"
+>
+<svg width="20" height="20" viewBox="0 0 24 24">
+<path
+d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"
+stroke="currentColor"
+stroke-width="2"
+fill="none"
+></path>
+</svg>
+<span>Home</span>
 
-      <!-- Bottom border bar -->
-      <div class="cover-bottom-bar"></div>
-    </section>
+</button>
+<button
+class="nav-link nav-item"
+data-target="stats"
+type="button"
+>
+<svg width="20" height="20" viewBox="0 0 24 24">
+<path
+d="M18 20V10M12 20V4M6 20v-6"
+stroke="currentColor"
+stroke-width="2"
+stroke-linecap="round"
+></path>
+</svg>
+<span>Stats</span>
+</button>
+<button
+class="nav-link nav-item"
+data-target="categories"
+type="button"
+>
+<svg width="20" height="20" viewBox="0 0 24 24">
+<rect
+x="3"
+y="3"
+width="7"
+height="7"
+rx="1"
+stroke="currentColor"
+stroke-width="2"
+fill="none"
+></rect>
+<rect
+x="14"
+y="3"
+width="7"
+height="7"
+rx="1"
+stroke="currentColor"
+stroke-width="2"
 
-    <!-- MAIN APP SHELL (hidden until after cover) -->
-    <div id="appShell" class="app-shell hidden">
-      <header class="main-header">
-        <div class="header-container">
-          <!-- clickable logo returns to COVER -->
-          <button class="logo" id="logoBtn" type="button">
-            <span class="logo-icon"></span>
-            <span class="logo-text">Life On Track</span>
-          </button>
+fill="none"
+></rect>
+<rect
+x="14"
+y="14"
+width="7"
+height="7"
+rx="1"
+stroke="currentColor"
+stroke-width="2"
+fill="none"
+></rect>
+<rect
+x="3"
+y="14"
+width="7"
+height="7"
+rx="1"
+stroke="currentColor"
+stroke-width="2"
+fill="none"
+></rect>
+</svg>
+<span>Categories</span>
+</button>
+<button
+class="nav-link nav-item"
+data-target="about"
+type="button"
+>
+<svg width="20" height="20" viewBox="0 0 24 24">
+<circle
+cx="12"
+cy="7"
+r="4"
+stroke="currentColor"
+stroke-width="2"
+fill="none"
+></circle>
+<path
+d="M5 21c1.5-3 3.5-4.5 7-4.5s5.5 1.5 7 4.5"
 
-          <nav class="top-nav">
-            <button
-              class="nav-link nav-item nav-active"
-              data-target="home"
-              type="button"
-            >
-              <svg width="20" height="20" viewBox="0 0 24 24">
-                <path
-                  d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  fill="none"
-                ></path>
-              </svg>
-              <span>Home</span>
-            </button>
+stroke="currentColor"
+stroke-width="2"
+fill="none"
+></path>
+</svg>
+<span>About</span>
+</button>
+</nav>
+<button
+id="themeBtn"
+class="theme-btn"
+type="button"
+aria-label="Toggle dark mode"
+>
+<span class="sun-icon">
+☀
+</span>
+<span class="moon-icon">
+🌙
+</span>
+</button>
+</div>
+</header>
+<main class="container">
+<!-- HOME -->
+<section id="home" class="page-section active">
+<div class="page-header">
+<h1 class="page-title">Today's Progress</h1>
+</div>
+<!-- PROGRESS -->
+<div class="progress-card">
+<div class="progress-content">
+<div class="progress-text">
+<div id="progressNumber" class="progress-number">0</div>
+<div class="progress-label">Daily Progress</div>
+</div>
+<div class="progress-circle">
+<svg width="120" height="120">
+<circle
+cx="60"
+cy="60"
+r="50"
+class="progress-bg"
 
-            <button
-              class="nav-link nav-item"
-              data-target="stats"
-              type="button"
-            >
-              <svg width="20" height="20" viewBox="0 0 24 24">
-                <path
-                  d="M18 20V10M12 20V4M6 20v-6"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                ></path>
-              </svg>
-              <span>Stats</span>
-            </button>
+></circle>
+<circle
+id="progressFill"
+cx="60"
+cy="60"
+r="50"
+class="progress-fill"
+></circle>
+</svg>
+<div
+id="progressPercentage"
+class="progress-percentage"
+>
+0%
+</div>
+</div>
+</div>
+<p id="progressSummary" class="progress-summary">
+Add habits to start tracking.
+</p>
+</div>
+<!-- RECOMMENDED HABITS -->
+<div class="recommended-section">
+<h2 class="section-title">
+<span class="section-icon">
+★
+</span>
+Recommended Habits
+</h2>
+<div class="recommended-grid">
+<button
+class="recommended-card"
+data-habit="Morning Walk"
+data-category="exercise"
+type="button"
+>
+<div class="recommended-image">
+<svg width="40" height="40" viewBox="0 0 24 24">
+<path
+d="M13 4v2l-5 8h5v6l5-8h-5V4z"
+fill="currentColor"
+></path>
+</svg>
 
-            <button
-              class="nav-link nav-item"
-              data-target="categories"
-              type="button"
-            >
-              <svg width="20" height="20" viewBox="0 0 24 24">
-                <rect
-                  x="3"
-                  y="3"
-                  width="7"
-                  height="7"
-                  rx="1"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  fill="none"
-                ></rect>
-                <rect
-                  x="14"
-                  y="3"
-                  width="7"
-                  height="7"
-                  rx="1"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  fill="none"
-                ></rect>
-                <rect
-                  x="14"
-                  y="14"
-                  width="7"
-                  height="7"
-                  rx="1"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  fill="none"
-                ></rect>
-                <rect
-                  x="3"
-                  y="14"
-                  width="7"
-                  height="7"
-                  rx="1"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  fill="none"
-                ></rect>
-              </svg>
-              <span>Categories</span>
-            </button>
+</div>
+<h3 class="recommended-title">Morning Walk</h3>
+<p class="recommended-desc">
+Start your day with energy.
+</p>
+<span class="add-icon">+</span>
+</button>
+<button
+class="recommended-card"
+data-habit="Drink 8 Glasses of Water"
+data-category="water"
+type="button"
+>
+<div class="recommended-image">
+<svg width="40" height="40" viewBox="0 0 24 24">
+<path
+d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"
+fill="currentColor"
+></path>
+</svg>
+</div>
+<h3 class="recommended-title">Stay Hydrated</h3>
+<p class="recommended-desc">8 glasses daily goal.</p>
+<span class="add-icon">+</span>
+</button>
+<button
+class="recommended-card"
+data-habit="Read 30 Minutes"
+data-category="reading"
+type="button"
+>
+<div class="recommended-image">
+<svg width="40" height="40" viewBox="0 0 24 24">
+<path
+d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 19.5A2.5 2.5 0 0 0 6.5
+22H20V2H6.5A2.5 2.5 0 0 0 4 4.5v15z"
+stroke="currentColor"
+stroke-width="2"
+fill="none"
+></path>
 
-            <button
-              class="nav-link nav-item"
-              data-target="about"
-              type="button"
-            >
-              <svg width="20" height="20" viewBox="0 0 24 24">
-                <circle
-                  cx="12"
-                  cy="7"
-                  r="4"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  fill="none"
-                ></circle>
-                <path
-                  d="M5 21c1.5-3 3.5-4.5 7-4.5s5.5 1.5 7 4.5"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  fill="none"
-                ></path>
-              </svg>
-              <span>About</span>
-            </button>
-          </nav>
+</svg>
+</div>
+<h3 class="recommended-title">Daily Reading</h3>
+<p class="recommended-desc">Expand your knowledge.</p>
+<span class="add-icon">+</span>
+</button>
+<button
+class="recommended-card"
+data-habit="7 Hours Sleep"
+data-category="sleep"
+type="button"
+>
+<div class="recommended-image">
+<svg width="40" height="40" viewBox="0 0 24 24">
+<path
+d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"
+fill="currentColor"
+></path>
+</svg>
+</div>
+<h3 class="recommended-title">Quality Sleep</h3>
+<p class="recommended-desc">Rest and recharge.</p>
+<span class="add-icon">+</span>
+</button>
+</div>
+</div>
+<!-- HABITS GRID -->
+<div class="habits-header">
+<h2 class="section-title">
+<span class="section-icon">
+☑
+</span>
+Your Habits
+</h2>
+</div>
+<div id="habitsContainer" class="habits-grid"></div>
+</section>
+<!-- STATS -->
+<section id="stats" class="page-section">
+<div class="page-header">
+<h1 class="page-title">Your Statistics</h1>
 
-          <button
-            id="themeBtn"
-            class="theme-btn"
-            type="button"
-            aria-label="Toggle dark mode"
-          >
-            <span class="sun-icon">☀️</span>
-            <span class="moon-icon">🌙</span>
-          </button>
-        </div>
-      </header>
+<p class="page-subtitle">See how far you've come.</p>
+</div>
+<div class="stats-grid">
+<div class="stat-card">
+<div class="stat-icon">
+<svg width="48" height="48" viewBox="0 0 24 24" fill="none">
+<path
+d="M3 3v18h18"
+stroke="currentColor"
+stroke-width="2"
+></path>
+<path
+d="M18 17l-5-5-4 4-5-5"
+stroke="currentColor"
+stroke-width="2"
+stroke-linecap="round"
+></path>
+</svg>
+</div>
+<div id="totalHabits" class="stat-number">0</div>
+<div class="stat-label">Total Habits</div>
+</div>
+<div class="stat-card">
+<div class="stat-icon">
+<svg width="48" height="48" viewBox="0 0 24 24" fill="none">
+<path
+d="M8.5 14.667L4 10.333 5.833 8.583 8.5 11.167 12.833 7 14.667 8.75
+8.5 14.667z"
+fill="currentColor"
+></path>
+<circle
+cx="12"
+cy="12"
+r="10"
+stroke="currentColor"
+stroke-width="2"
+></circle>
+</svg>
+</div>
+<div id="longestStreak" class="stat-number">0</div>
 
-      <main class="container">
-        <!-- HOME -->
-        <section id="home" class="page-section active">
-          <div class="page-header">
-            <h1 class="page-title">Today’s Progress</h1>
-          </div>
+<div class="stat-label">Longest Streak</div>
+</div>
+<div class="stat-card">
+<div class="stat-icon">
+<svg width="48" height="48" viewBox="0 0 24 24" fill="none">
+<path
+d="M9 11l3 3L22 4"
+stroke="currentColor"
+stroke-width="2"
+stroke-linecap="round"
+></path>
+<path
+d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"
+stroke="currentColor"
+stroke-width="2"
+></path>
+</svg>
+</div>
+<div id="completedToday" class="stat-number">0</div>
+<div class="stat-label">Completed Today</div>
+</div>
+<div class="stat-card">
+<div class="stat-icon">
+<svg width="48" height="48" viewBox="0 0 24 24" fill="none">
+<circle
+cx="12"
+cy="12"
+r="10"
+stroke="currentColor"
+stroke-width="2"
+></circle>
+<path
+d="M12 6v6l4 2"
+stroke="currentColor"
+stroke-width="2"
+stroke-linecap="round"
+></path>
+</svg>
+</div>
+<div id="totalCompletions" class="stat-number">0</div>
 
-          <!-- PROGRESS -->
-          <div class="progress-card">
-            <div class="progress-content">
-              <div class="progress-text">
-                <div id="progressNumber" class="progress-number">0</div>
-                <div class="progress-label">Daily Progress</div>
-              </div>
-              <div class="progress-circle">
-                <svg width="120" height="120">
-                  <circle
-                    cx="60"
-                    cy="60"
-                    r="50"
-                    class="progress-bg"
-                  ></circle>
-                  <circle
-                    id="progressFill"
-                    cx="60"
-                    cy="60"
-                    r="50"
-                    class="progress-fill"
-                  ></circle>
-                </svg>
-                <div
-                  id="progressPercentage"
-                  class="progress-percentage"
-                >
-                  0%
-                </div>
-              </div>
-            </div>
-            <p id="progressSummary" class="progress-summary">
-              Add habits to start tracking.
-            </p>
-          </div>
+<div class="stat-label">All-Time Completions</div>
+</div>
+</div>
+</section>
+<!-- CATEGORIES -->
+<section id="categories" class="page-section">
+<div class="page-header">
+<h1 class="page-title">Habit Categories</h1>
+<p class="page-subtitle">
+Organize your life, one habit at a time.
+</p>
+</div>
+<!-- hover preview box -->
+<div id="categoryPreview" class="category-preview">
+<div id="categoryPreviewContent" class="category-preview-inner">
+<p class="category-preview-placeholder">
+Hover a category to see ideas, recipes, or book recommendations.
+</p>
+</div>
+</div>
+<div class="categories-grid">
+<!-- Exercise -->
+<div class="category-card" style="--category-color: #FF6B35;">
+<div class="category-icon">
+<svg width="48" height="48" viewBox="0 0 24 24" fill="none">
+<path
+d="M13 4v2l-5 8h5v6l5-8h-5V4z"
+fill="currentColor"
+></path>
+</svg>
+</div>
+<h3 class="category-name">Exercise</h3>
+<p class="category-desc">Fitness & movement</p>
+</div>
+<!-- Nutrition -->
+<div class="category-card" style="--category-color: #4CAF50;">
+<div class="category-icon">
+<svg width="48" height="48" viewBox="0 0 24 24" fill="none">
 
-          <!-- RECOMMENDED HABITS -->
-          <div class="recommended-section">
-            <h2 class="section-title">
-              <span class="section-icon">★</span>
-              Recommended Habits
-            </h2>
-            <div class="recommended-grid">
-              <button
-                class="recommended-card"
-                data-habit="Morning Walk"
-                data-category="exercise"
-                type="button"
-              >
-                <div class="recommended-image">
-                  <svg width="40" height="40" viewBox="0 0 24 24">
-                    <path
-                      d="M13 4v2l-5 8h5v6l5-8h-5V4z"
-                      fill="currentColor"
-                    ></path>
-                  </svg>
-                </div>
-                <h3 class="recommended-title">Morning Walk</h3>
-                <p class="recommended-desc">
-                  Start your day with energy.
-                </p>
-                <span class="add-icon">+</span>
-              </button>
+<circle
+cx="12"
+cy="12"
+r="10"
+stroke="currentColor"
+stroke-width="2"
+></circle>
+<path
+d="M12 6v6l4 2"
+stroke="currentColor"
+stroke-width="2"
+></path>
+</svg>
+</div>
+<h3 class="category-name">Nutrition</h3>
+<p class="category-desc">Healthy eating habits</p>
+</div>
+<!-- Study -->
+<div class="category-card" style="--category-color: #9C27B0;">
+<div class="category-icon">
+<svg width="48" height="48" viewBox="0 0 24 24" fill="none">
+<path
+d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 19.5A2.5 2.5 0 0 0 6.5
+22H20V2H6.5A2.5 2.5 0 0 0 4 4.5v15z"
+stroke="currentColor"
+stroke-width="2"
+></path>
+</svg>
+</div>
+<h3 class="category-name">Study</h3>
+<p class="category-desc">Learning & growth</p>
+</div>
+<!-- Wellness -->
+<div class="category-card" style="--category-color: #FF9800;">
+<div class="category-icon">
+<svg width="48" height="48" viewBox="0 0 24 24" fill="none">
+<circle
+cx="12"
+cy="12"
+r="10"
 
-              <button
-                class="recommended-card"
-                data-habit="Drink 8 Glasses of Water"
-                data-category="water"
-                type="button"
-              >
-                <div class="recommended-image">
-                  <svg width="40" height="40" viewBox="0 0 24 24">
-                    <path
-                      d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"
-                      fill="currentColor"
-                    ></path>
-                  </svg>
-                </div>
-                <h3 class="recommended-title">Stay Hydrated</h3>
-                <p class="recommended-desc">8 glasses daily goal.</p>
-                <span class="add-icon">+</span>
-              </button>
+stroke="currentColor"
+stroke-width="2"
+></circle>
+<path
+d="M12 8v4M12 16h.01"
+stroke="currentColor"
+stroke-width="2"
+stroke-linecap="round"
+></path>
+</svg>
+</div>
+<h3 class="category-name">Wellness</h3>
+<p class="category-desc">Mental health & mindfulness</p>
+</div>
+<!-- Sleep -->
+<div class="category-card" style="--category-color: #3F51B5;">
+<div class="category-icon">
+<svg width="48" height="48" viewBox="0 0 24 24" fill="none">
+<path
+d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"
+fill="currentColor"
+></path>
+</svg>
+</div>
+<h3 class="category-name">Sleep</h3>
+<p class="category-desc">Rest & recovery</p>
+</div>
+<!-- Hydration -->
+<div class="category-card" style="--category-color: #00BCD4;">
+<div class="category-icon">
+<svg width="48" height="48" viewBox="0 0 24 24" fill="none">
+<path
+d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"
+fill="currentColor"
+></path>
+</svg>
+</div>
+<h3 class="category-name">Hydration</h3>
+<p class="category-desc">Stay hydrated</p>
+</div>
 
-              <button
-                class="recommended-card"
-                data-habit="Read 30 Minutes"
-                data-category="reading"
-                type="button"
-              >
-                <div class="recommended-image">
-                  <svg width="40" height="40" viewBox="0 0 24 24">
-                    <path
-                      d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 19.5A2.5 2.5 0 0 0 6.5 22H20V2H6.5A2.5 2.5 0 0 0 4 4.5v15z"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      fill="none"
-                    ></path>
-                  </svg>
-                </div>
-                <h3 class="recommended-title">Daily Reading</h3>
-                <p class="recommended-desc">Expand your knowledge.</p>
-                <span class="add-icon">+</span>
-              </button>
+<!-- Work -->
+<div class="category-card" style="--category-color: #F44336;">
+<div class="category-icon">
+<svg width="48" height="48" viewBox="0 0 24 24" fill="none">
+<rect
+x="3"
+y="4"
+width="18"
+height="18"
+rx="2"
+stroke="currentColor"
+stroke-width="2"
+></rect>
+<path
+d="M8 2v4M16 2v4M3 10h18"
+stroke="currentColor"
+stroke-width="2"
+></path>
+</svg>
+</div>
+<h3 class="category-name">Work</h3>
+<p class="category-desc">Professional development</p>
+</div>
+<!-- Cooking -->
+<div class="category-card" style="--category-color: #FF5722;">
+<div class="category-icon">
+<svg width="48" height="48" viewBox="0 0 24 24" fill="none">
+<circle
+cx="12"
+cy="12"
+r="10"
+stroke="currentColor"
+stroke-width="2"
+></circle>
+<path
+d="M12 7v5l3 3"
+stroke="currentColor"
+stroke-width="2"
+stroke-linecap="round"
+></path>
 
-              <button
-                class="recommended-card"
-                data-habit="7 Hours Sleep"
-                data-category="sleep"
-                type="button"
-              >
-                <div class="recommended-image">
-                  <svg width="40" height="40" viewBox="0 0 24 24">
-                    <path
-                      d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"
-                      fill="currentColor"
-                    ></path>
-                  </svg>
-                </div>
-                <h3 class="recommended-title">Quality Sleep</h3>
-                <p class="recommended-desc">Rest and recharge.</p>
-                <span class="add-icon">+</span>
-              </button>
-            </div>
-          </div>
+</svg>
+</div>
+<h3 class="category-name">Cooking</h3>
+<p class="category-desc">Culinary skills</p>
+</div>
+<!-- Reading -->
+<div class="category-card" style="--category-color: #673AB7;">
+<div class="category-icon">
+<svg width="48" height="48" viewBox="0 0 24 24" fill="none">
+<path
+d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 19.5A2.5 2.5 0 0 0 6.5
+22H20V2H6.5A2.5 2.5 0 0 0 4 4.5v15z"
+stroke="currentColor"
+stroke-width="2"
+></path>
+<path
+d="M9 10h6M9 14h6"
+stroke="currentColor"
+stroke-width="2"
+></path>
+</svg>
+</div>
+<h3 class="category-name">Reading</h3>
+<p class="category-desc">Books & articles</p>
+</div>
+<!-- Creative -->
+<div class="category-card" style="--category-color: #E91E63;">
+<div class="category-icon">
+<svg width="48" height="48" viewBox="0 0 24 24" fill="none">
+<path
+d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7
+14.14 2 9.27l6.91-1.01L12 2z"
+fill="currentColor"
+></path>
+</svg>
+</div>
+<h3 class="category-name">Creative</h3>
+<p class="category-desc">Art & expression</p>
+</div>
+</div>
 
-          <!-- HABITS GRID -->
-          <div class="habits-header">
-            <h2 class="section-title">
-              <span class="section-icon">☑</span>
-              Your Habits
-            </h2>
-          </div>
-          <div id="habitsContainer" class="habits-grid"></div>
-        </section>
+</section>
+<!-- ABOUT -->
+<section id="about" class="page-section">
+<div class="page-header">
+<h1 class="page-title">About Life On Track</h1>
+<p class="page-subtitle">
+Learn more about the app and its creator.
+</p>
+</div>
+<div class="about-content">
+<article class="about-card">
+<h2>About the App</h2>
+<p>
+Life On Track was built with the idea that you can track all of
+your habits, scheduling, and daily tasks in one place. The app
+makes it easy to create, manage, and monitor habits all from a
+single page. It's designed to help you get your life on track.
+</p>
+</article>
+<article class="about-card">
+<h2>About the CEO</h2>
+<p>
+Hi! I'm Isaira Alvarez, a student at Boston University. This is
+my Habit Tracker App project for CM523, created as a way to
+apply everything learned this semester, from HTML, CSS, and
+JavaScript, to building a friendly and sustainable app.
+</p>
+</article>
+<article class="about-card">
+<h2>Design Document</h2>
+<p>
+This section outlines the visual design system for the project, including color palettes, typography, UI components, and layout guidelines.
+</p>
+<a href="file:///Users/isairaalvarez/Downloads/LifeOnTrackDesignDocument.html" target="_blank" class="about-link">View Design Document</a>
+</article>
+<article class="about-card">
+<h2>Citations & AI Use</h2>
+<p>
+This section includes references, online resources, tutorials, and inspirational materials used during development, as well as a summary of how artificial intelligence tools supported the project.
+</p>
+<a href="file:///Users/isairaalvarez/Downloads/CitationsAIUse.html" target="_blank" class="about-link">View Citations & AI Use</a>
+</article>
+</div>
+</section>
+</main>
+<!-- FAB -->
+<button
+id="addHabitBtn"
+class="fab"
+type="button"
+aria-label="Add new habit"
+>
 
-        <!-- STATS -->
-        <section id="stats" class="page-section">
-          <div class="page-header">
-            <h1 class="page-title">Your Statistics</h1>
-            <p class="page-subtitle">See how far you’ve come.</p>
-          </div>
++
+</button>
+<!-- HABIT MODAL -->
+<div id="habitModal" class="modal">
+<div class="modal-content">
+<div class="modal-header">
+<h2 class="modal-title">Create New Habit</h2>
+<button
+id="closeModal"
+class="modal-close"
+type="button"
+aria-label="Close modal"
+>
+✕
+</button>
+</div>
+<form id="habitForm" class="modal-body">
+<div class="form-group">
+<label for="habitName" class="form-label">
+Habit Name <span class="required">*</span>
+</label>
+<input
+type="text"
+id="habitName"
+class="form-input"
+placeholder="e.g., Morning workout, Read 30 minutes"
+required
+maxlength="50"
+>
+</div>
+<div class="form-group">
+<label for="habitCategory" class="form-label">Category</label>
+<select id="habitCategory" class="form-input">
+<option value="exercise">Exercise</option>
+<option value="nutrition">Nutrition</option>
+<option value="study">Study</option>
+<option value="wellness">Wellness</option>
+<option value="sleep">Sleep</option>
+<option value="water">Hydration</option>
 
-          <div class="stats-grid">
-            <div class="stat-card">
-              <div class="stat-icon">
-                <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
-                  <path
-                    d="M3 3v18h18"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  ></path>
-                  <path
-                    d="M18 17l-5-5-4 4-5-5"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                  ></path>
-                </svg>
-              </div>
-              <div id="totalHabits" class="stat-number">0</div>
-              <div class="stat-label">Total Habits</div>
-            </div>
+<option value="work">Work</option>
+<option value="cooking">Cooking</option>
+<option value="reading">Reading</option>
+<option value="creative">Creative</option>
+</select>
+</div>
+<!-- WEEKLY DUE DAYS -->
+<div class="form-group">
+<span class="form-label">Due Days</span>
+<div class="due-days-grid">
+<label class="due-day">
+<input
+type="checkbox"
+value="0"
+class="due-day-input"
+>
+Sun
+</label>
+<label class="due-day">
+<input
+type="checkbox"
+value="1"
+class="due-day-input"
+>
+Mon
+</label>
+<label class="due-day">
+<input
+type="checkbox"
+value="2"
+class="due-day-input"
+>
+Tue
+</label>
+<label class="due-day">
+<input
+type="checkbox"
+value="3"
+class="due-day-input"
+>
+Wed
 
-            <div class="stat-card">
-              <div class="stat-icon">
-                <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
-                  <path
-                    d="M8.5 14.667L4 10.333 5.833 8.583 8.5 11.167 12.833 7 14.667 8.75 8.5 14.667z"
-                    fill="currentColor"
-                  ></path>
-                  <circle
-                    cx="12"
-                    cy="12"
-                    r="10"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  ></circle>
-                </svg>
-              </div>
-              <div id="longestStreak" class="stat-number">0</div>
-              <div class="stat-label">Longest Streak</div>
-            </div>
+</label>
+<label class="due-day">
+<input
+type="checkbox"
+value="4"
+class="due-day-input"
+>
+Thu
+</label>
+<label class="due-day">
+<input
+type="checkbox"
+value="5"
+class="due-day-input"
+>
+Fri
+</label>
+<label class="due-day">
+<input
+type="checkbox"
+value="6"
+class="due-day-input"
+>
+Sat
+</label>
+</div>
+</div>
+</form>
+<div class="modal-footer">
+<button
+type="button"
+id="cancelBtn"
+class="btn-secondary"
+>
+Cancel
+</button>
+<button
+type="submit"
+form="habitForm"
+class="btn-primary"
+>
 
-            <div class="stat-card">
-              <div class="stat-icon">
-                <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
-                  <path
-                    d="M9 11l3 3L22 4"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                  ></path>
-                  <path
-                    d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  ></path>
-                </svg>
-              </div>
-              <div id="completedToday" class="stat-number">0</div>
-              <div class="stat-label">Completed Today</div>
-            </div>
-
-            <div class="stat-card">
-              <div class="stat-icon">
-                <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
-                  <circle
-                    cx="12"
-                    cy="12"
-                    r="10"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  ></circle>
-                  <path
-                    d="M12 6v6l4 2"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                  ></path>
-                </svg>
-              </div>
-              <div id="totalCompletions" class="stat-number">0</div>
-              <div class="stat-label">All-Time Completions</div>
-            </div>
-          </div>
-        </section>
-
-        <!-- CATEGORIES -->
-        <section id="categories" class="page-section">
-          <div class="page-header">
-            <h1 class="page-title">Habit Categories</h1>
-            <p class="page-subtitle">
-              Organize your life, one habit at a time.
-            </p>
-          </div>
-
-          <!-- hover preview box -->
-          <div id="categoryPreview" class="category-preview">
-            <div id="categoryPreviewContent" class="category-preview-inner">
-              <p class="category-preview-placeholder">
-                Hover a category to see ideas, recipes, or book recommendations.
-              </p>
-            </div>
-          </div>
-
-          <div class="categories-grid">
-            <!-- Exercise -->
-            <div class="category-card" style="--category-color: #FF6B35;">
-              <div class="category-icon">
-                <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
-                  <path
-                    d="M13 4v2l-5 8h5v6l5-8h-5V4z"
-                    fill="currentColor"
-                  ></path>
-                </svg>
-              </div>
-              <h3 class="category-name">Exercise</h3>
-              <p class="category-desc">Fitness & movement</p>
-            </div>
-
-            <!-- Nutrition -->
-            <div class="category-card" style="--category-color: #4CAF50;">
-              <div class="category-icon">
-                <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
-                  <circle
-                    cx="12"
-                    cy="12"
-                    r="10"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  ></circle>
-                  <path
-                    d="M12 6v6l4 2"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  ></path>
-                </svg>
-              </div>
-              <h3 class="category-name">Nutrition</h3>
-              <p class="category-desc">Healthy eating habits</p>
-            </div>
-
-            <!-- Study -->
-            <div class="category-card" style="--category-color: #9C27B0;">
-              <div class="category-icon">
-                <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
-                  <path
-                    d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 19.5A2.5 2.5 0 0 0 6.5 22H20V2H6.5A2.5 2.5 0 0 0 4 4.5v15z"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  ></path>
-                </svg>
-              </div>
-              <h3 class="category-name">Study</h3>
-              <p class="category-desc">Learning & growth</p>
-            </div>
-
-            <!-- Wellness -->
-            <div class="category-card" style="--category-color: #FF9800;">
-              <div class="category-icon">
-                <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
-                  <circle
-                    cx="12"
-                    cy="12"
-                    r="10"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  ></circle>
-                  <path
-                    d="M12 8v4M12 16h.01"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                  ></path>
-                </svg>
-              </div>
-              <h3 class="category-name">Wellness</h3>
-              <p class="category-desc">Mental health & mindfulness</p>
-            </div>
-
-            <!-- Sleep -->
-            <div class="category-card" style="--category-color: #3F51B5;">
-              <div class="category-icon">
-                <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
-                  <path
-                    d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"
-                    fill="currentColor"
-                  ></path>
-                </svg>
-              </div>
-              <h3 class="category-name">Sleep</h3>
-              <p class="category-desc">Rest & recovery</p>
-            </div>
-
-            <!-- Hydration -->
-            <div class="category-card" style="--category-color: #00BCD4;">
-              <div class="category-icon">
-                <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
-                  <path
-                    d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"
-                    fill="currentColor"
-                  ></path>
-                </svg>
-              </div>
-              <h3 class="category-name">Hydration</h3>
-              <p class="category-desc">Stay hydrated</p>
-            </div>
-
-            <!-- Work -->
-            <div class="category-card" style="--category-color: #F44336;">
-              <div class="category-icon">
-                <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
-                  <rect
-                    x="3"
-                    y="4"
-                    width="18"
-                    height="18"
-                    rx="2"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  ></rect>
-                  <path
-                    d="M8 2v4M16 2v4M3 10h18"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  ></path>
-                </svg>
-              </div>
-              <h3 class="category-name">Work</h3>
-              <p class="category-desc">Professional development</p>
-            </div>
-
-            <!-- Cooking -->
-            <div class="category-card" style="--category-color: #FF5722;">
-              <div class="category-icon">
-                <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
-                  <circle
-                    cx="12"
-                    cy="12"
-                    r="10"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  ></circle>
-                  <path
-                    d="M12 7v5l3 3"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                  ></path>
-                </svg>
-              </div>
-              <h3 class="category-name">Cooking</h3>
-              <p class="category-desc">Culinary skills</p>
-            </div>
-
-            <!-- Reading -->
-            <div class="category-card" style="--category-color: #673AB7;">
-              <div class="category-icon">
-                <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
-                  <path
-                    d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 19.5A2.5 2.5 0 0 0 6.5 22H20V2H6.5A2.5 2.5 0 0 0 4 4.5v15z"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  ></path>
-                  <path
-                    d="M9 10h6M9 14h6"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  ></path>
-                </svg>
-              </div>
-              <h3 class="category-name">Reading</h3>
-              <p class="category-desc">Books & articles</p>
-            </div>
-
-            <!-- Creative -->
-            <div class="category-card" style="--category-color: #E91E63;">
-              <div class="category-icon">
-                <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
-                  <path
-                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
-                    fill="currentColor"
-                  ></path>
-                </svg>
-              </div>
-              <h3 class="category-name">Creative</h3>
-              <p class="category-desc">Art & expression</p>
-            </div>
-          </div>
-        </section>
-
-        <!-- ABOUT -->
-        <section id="about" class="page-section">
-          <div class="page-header">
-            <h1 class="page-title">About Life On Track</h1>
-            <p class="page-subtitle">
-              Learn more about the app and its creator.
-            </p>
-          </div>
-
-          <div class="about-content">
-            <article class="about-card">
-              <h2>About the App</h2>
-              <p>
-                Life On Track was built with the idea that you can track all of
-                your habits, scheduling, and daily tasks in one place. The app
-                makes it easy to create, manage, and monitor habits all from a
-                single page. It’s designed to help you get your life on track.
-              </p>
-            </article>
-
-            <article class="about-card">
-              <h2>About the CEO</h2>
-              <p>
-                Hi! I’m Isaira Alvarez, a student at Boston University. This is
-                my Habit Tracker App project for CM523, created as a way to
-                apply everything learned this semester, from HTML, CSS, and
-                JavaScript, to building a friendly and sustainable app.
-              </p>
-            </article>
-          </div>
-        </section>
-      </main>
-
-      <!-- FAB -->
-      <button
-        id="addHabitBtn"
-        class="fab"
-        type="button"
-        aria-label="Add new habit"
-      >
-        +
-      </button>
-
-      <!-- HABIT MODAL -->
-      <div id="habitModal" class="modal">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h2 class="modal-title">Create New Habit</h2>
-            <button
-              id="closeModal"
-              class="modal-close"
-              type="button"
-              aria-label="Close modal"
-            >
-              ✕
-            </button>
-          </div>
-
-          <form id="habitForm" class="modal-body">
-            <div class="form-group">
-              <label for="habitName" class="form-label">
-                Habit Name <span class="required">*</span>
-              </label>
-              <input
-                type="text"
-                id="habitName"
-                class="form-input"
-                placeholder="e.g., Morning workout, Read 30 minutes"
-                required
-                maxlength="50"
-              >
-            </div>
-
-            <div class="form-group">
-              <label for="habitCategory" class="form-label">Category</label>
-              <select id="habitCategory" class="form-input">
-                <option value="exercise">Exercise</option>
-                <option value="nutrition">Nutrition</option>
-                <option value="study">Study</option>
-                <option value="wellness">Wellness</option>
-                <option value="sleep">Sleep</option>
-                <option value="water">Hydration</option>
-                <option value="work">Work</option>
-                <option value="cooking">Cooking</option>
-                <option value="reading">Reading</option>
-                <option value="creative">Creative</option>
-              </select>
-            </div>
-
-            <!-- WEEKLY DUE DAYS -->
-            <div class="form-group">
-              <span class="form-label">Due Days</span>
-              <div class="due-days-grid">
-                <label class="due-day">
-                  <input
-                    type="checkbox"
-                    value="0"
-                    class="due-day-input"
-                  >
-                  Sun
-                </label>
-                <label class="due-day">
-                  <input
-                    type="checkbox"
-                    value="1"
-                    class="due-day-input"
-                  >
-                  Mon
-                </label>
-                <label class="due-day">
-                  <input
-                    type="checkbox"
-                    value="2"
-                    class="due-day-input"
-                  >
-                  Tue
-                </label>
-                <label class="due-day">
-                  <input
-                    type="checkbox"
-                    value="3"
-                    class="due-day-input"
-                  >
-                  Wed
-                </label>
-                <label class="due-day">
-                  <input
-                    type="checkbox"
-                    value="4"
-                    class="due-day-input"
-                  >
-                  Thu
-                </label>
-                <label class="due-day">
-                  <input
-                    type="checkbox"
-                    value="5"
-                    class="due-day-input"
-                  >
-                  Fri
-                </label>
-                <label class="due-day">
-                  <input
-                    type="checkbox"
-                    value="6"
-                    class="due-day-input"
-                  >
-                  Sat
-                </label>
-              </div>
-            </div>
-          </form>
-
-          <div class="modal-footer">
-            <button
-              type="button"
-              id="cancelBtn"
-              class="btn-secondary"
-            >
-              Cancel
-            </button>
-            <button
-              type="submit"
-              form="habitForm"
-              class="btn-primary"
-            >
-              Save Habit
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Gradient for circular progress -->
-    <svg width="0" height="0" style="position:absolute;">
-      <defs>
-        <linearGradient id="gradient" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0%" stop-color="#2D5016" stop-opacity="1"></stop>
-          <stop offset="100%" stop-color="#4CAF50" stop-opacity="1"></stop>
-        </linearGradient>
-      </defs>
-    </svg>
-  </body>
+Save Habit
+</button>
+</div>
+</div>
+</div>
+<!-- Gradient for circular progress -->
+<svg width="0" height="0" style="position:absolute;">
+<defs>
+<linearGradient id="gradient" x1="0" y1="0" x2="1" y2="0">
+<stop offset="0%" stop-color="#2D5016" stop-opacity="1"></stop>
+<stop offset="100%" stop-color="#4CAF50" stop-opacity="1"></stop>
+</linearGradient>
+</defs>
+</svg>
+</body>
 </html>
