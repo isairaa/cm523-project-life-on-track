@@ -475,12 +475,12 @@ totalCompletions.textContent = String(totalCount);
 
 categoryCards.forEach(function (card) {
 card.addEventListener("click", function () {
-// Remove active class from all cards
-categoryCards.forEach(function (c) {
+
+    categoryCards.forEach(function (c) {
 c.classList.remove("active");
 });
 
-// Add active class to clicked card
+
 card.classList.add("active");
 
 const nameElement = card.querySelector(".category-name");
